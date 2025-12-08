@@ -104,4 +104,6 @@ flycheck_*.el
 
 
 
-/var/opt/mssql
+var
+!var/opt/mssql/backup/*.txt
+!var/opt/mssql/backup/*.sh

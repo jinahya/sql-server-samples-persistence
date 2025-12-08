@@ -1,17 +1,16 @@
-version: '3.7'
-
 services:
- azure-sql-edge:
-    image: mcr.microsoft.com/azure-sql-edge:latest
+ mssql-server:
+#    image: mcr.microsoft.com/mssql/server:2025-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest    
+    platform: linux/amd64    
     container_name: sql-server-samples-persistence
-    cap_add:
-      - SYS_PTRACE
     ports:
       - "1433:1433"
     restart: always
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "abcD1234!"
+      MSSQL_SA_PASSWORD: "YourStrong@Passw0rd"
+      MSQL_PID: "Developer"
     volumes:
-      - ./var/opt/mssql:/var/opt/mssql
+      - ./var/opt/mssql/data:/var/opt/mssql/data
       - ./var/opt/mssql/backup:/var/opt/mssql/backup/
