@@ -1,4 +1,5 @@
 #!/bin/sh
+
 /opt/mssql-tools18/bin/sqlcmd \
     -C \
     -S localhost,1433 \
@@ -10,8 +11,6 @@
        MOVE 'AdventureWorks2022_Log' TO '/var/opt/mssql/data/AdventureWorks2022_Log.ldf', \
        REPLACE"
 
-#/opt/mssql-tools18/bin/sqlcmd -C -S localhost,1433 -U sa -P "YourStrong@Passw0rd" -Q "RESTORE FILELISTONLY FROM DISK='/var/opt/mssql/backup/AdventureWorksDW2022.bak'"
-
 /opt/mssql-tools18/bin/sqlcmd \
     -C \
     -S localhost,1433 \
@@ -22,8 +21,6 @@
        WITH MOVE 'AdventureWorksDW2022' TO '/var/opt/mssql/data/AdventureWorksDW2022.mdf', \
        MOVE 'AdventureWorksDW2022_log' TO '/var/opt/mssql/data/AdventureWorksDW2022_log.ldf', \
        REPLACE"
-
-#/opt/mssql-tools18/bin/sqlcmd -C -S localhost,1433 -U sa -P "YourStrong@Passw0rd" -Q "RESTORE FILELISTONLY FROM DISK='/var/opt/mssql/backup/AdventureWorksLT2022.bak'"
 
 /opt/mssql-tools18/bin/sqlcmd \
     -C \
